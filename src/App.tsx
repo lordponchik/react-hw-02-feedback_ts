@@ -4,6 +4,7 @@ import './App.css';
 import Statistics from './components/Statistics/Statistics';
 import FeedbackOptions from './components/FeedbackOptions/FeedbackOptions';
 import Section from './Section/Section';
+import Notification from './components/Notification/Notification';
 
 interface IState {
   good: number;
@@ -46,14 +47,18 @@ class App extends Component<{}, IState> {
           <FeedbackOptions options={options} onLeaveFeedback={this.onLeaveFeedback} />
         </Section>
 
-        <Section title={'<Statistics'}>
-          <Statistics
-            good={good}
-            neutral={neutral}
-            bad={bad}
-            total={this.countTotalFeedback()}
-            positivePercentage={this.countPositiveFeedbackPercentage()}
-          />
+        <Section title={'Statistics'}>
+          {this.countTotalFeedback() === 0 ? (
+            <Notification message={'There is no feedback'} />
+          ) : (
+            <Statistics
+              good={good}
+              neutral={neutral}
+              bad={bad}
+              total={this.countTotalFeedback()}
+              positivePercentage={this.countPositiveFeedbackPercentage()}
+            />
+          )}
         </Section>
       </div>
     );

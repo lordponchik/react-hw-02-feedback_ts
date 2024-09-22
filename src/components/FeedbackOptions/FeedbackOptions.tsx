@@ -1,3 +1,5 @@
+import style from './FeedbackOptions.module.css';
+
 interface IFeedBackOptions {
   options: string[];
   onLeaveFeedback: (option: string) => void;
@@ -12,6 +14,7 @@ const FeedbackOptions = ({ options, onLeaveFeedback }: IFeedBackOptions) => {
             key={option}
             type="button"
             name={option}
+            className={style[option]}
             onClick={() => {
               onLeaveFeedback(option);
             }}

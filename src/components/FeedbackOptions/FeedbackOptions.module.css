@@ -1,0 +1,30 @@
+.btn {
+  padding: 5px 15px;
+
+  font-weight: 500;
+  border-style: none;
+  color: white;
+  background-color: rgb(220, 220, 220);
+  cursor: pointer;
+  text-shadow: 1px 1px 1px rgb(85, 85, 85);
+}
+.btn:not(:last-child) {
+  margin-right: 10px;
+}
+
+.good {
+  composes: btn;
+
+  background-color: rgb(2, 153, 2);
+}
+
+.neutral {
+  composes: btn;
+
+  background-color: rgb(167, 167, 167);
+}
+.bad {
+  composes: btn;
+
+  background-color: rgb(186, 2, 2);
+}
